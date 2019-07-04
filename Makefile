@@ -6,11 +6,11 @@
 #*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2019/05/28 17:41:01 by blukasho          #+#    #+#             *#
-#*   Updated: 2019/06/27 09:28:38 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/07/04 18:54:23 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
-SRCS = main.c
+SRCS = main.c init.c clear.c error.c
 
 SRCS_DIR = srcs/
 
@@ -35,7 +35,7 @@ FT_SELECT_MAIN = srcs/main.c
 all: make_objs_dir make_lib $(FT_SELECT)
 
 $(FT_SELECT): $(LIB_NAME) $(FT_SELECT_MAIN)
-	gcc $(FLAGS) $(FT_SELECT_MAIN) $(LIB_NAME) -o $(FT_SELECT)
+	gcc $(FLAGS) $(FT_SELECT_MAIN) $(LIB_NAME) -o $(FT_SELECT) -ltermcap
 
 $(LIB_NAME): $(OBJ)
 	ar -rv $(LIB_NAME) $^

@@ -6,16 +6,29 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:16:07 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/04 16:33:35 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/04 21:34:56 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int			main(void)
+int				main(void)
 {
-	char	*term_name;
+	char		*term_name;
+	t_ft_select	*s;
 
+	s = init_t_ft_select();
+	init_terminal_name(s);
+	init_terminal_config(s);
+	if (s)
+	{}
+	while (!0)
+	{
+		char	buf;
+
+		if (read(STDIN_FILENO, &buf, 1))
+			ft_printf("%c", buf);
+	}
 	term_name = getenv("TERM");
 	ft_printf("term_name = %s\n", term_name);
 	ft_printf("_POSIX_VDISABLE = %d\n", _POSIX_VDISABLE);
@@ -27,6 +40,9 @@ int			main(void)
 	ft_putendl_fd("STDERR_FILENO", STDERR_FILENO);
 	ft_putendl_fd("STOUT_FILENO", STDOUT_FILENO);
 	ft_putendl_fd("STDIN_FILENO", STDIN_FILENO);
+	ft_printf("tgetstr() %s\n", tgetstr("vi", NULL));
+	if (s)
+		clear_t_ft_select(s);
 	return (0);
 }
 

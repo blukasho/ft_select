@@ -6,11 +6,11 @@
 #    By: blukasho <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/04 12:08:45 by blukasho          #+#    #+#              #
-#    Updated: 2019/07/04 15:44:00 by blukasho         ###   ########.fr        #
+#*   Updated: 2019/07/04 21:14:54 by                  ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = test_termios.c
+SRCS = test_fd.c
 
 FLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address -I includes
 
