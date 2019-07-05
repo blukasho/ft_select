@@ -56,10 +56,10 @@ endif
 set shortmess=aoO
 badd +1 srcs/main.c
 badd +1 srcs/init.c
-badd +15 includes/ft_select.h
+badd +34 includes/ft_select.h
 badd +13 Makefile
 badd +1 srcs/read.c
-badd +0 srcs/out.c
+badd +1 srcs/out.c
 argglobal
 silent! argdel *
 argadd srcs/main.c
@@ -179,11 +179,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 25 - ((23 * winheight(0) + 25) / 50)
+let s:l = 35 - ((33 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-25
+35
 normal! 0
 tabedit srcs/init.c
 set splitbelow splitright
@@ -300,12 +300,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 29 - ((25 * winheight(0) + 25) / 50)
+let s:l = 32 - ((23 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-29
-normal! 0
+32
+normal! 04|
 tabedit srcs/read.c
 set splitbelow splitright
 set nosplitbelow
@@ -421,12 +421,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 24 - ((23 * winheight(0) + 25) / 50)
+let s:l = 23 - ((22 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
-normal! 023|
+23
+normal! 022|
 tabedit srcs/out.c
 set splitbelow splitright
 set nosplitbelow
@@ -669,11 +669,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 34 - ((33 * winheight(0) + 25) / 50)
+let s:l = 38 - ((37 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-34
+38
 normal! 038|
 wincmd w
 argglobal

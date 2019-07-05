@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:16:07 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/05 12:23:18 by                  ###   ########.fr       */
+/*   Updated: 2019/07/05 13:16:14 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int				main(void)
 	{}
 	read_input(s);
 	init_old_terminal_config(s);
+
 	term_name = getenv("TERM");
 	ft_printf("term_name = %s\n", term_name);
 	ft_printf("_POSIX_VDISABLE = %d\n", _POSIX_VDISABLE);
@@ -35,6 +36,7 @@ int				main(void)
 	ft_putendl_fd("STDERR_FILENO", STDERR_FILENO);
 	ft_putendl_fd("STOUT_FILENO", STDOUT_FILENO);
 	ft_putendl_fd("STDIN_FILENO", STDIN_FILENO);
+
 	if (s)
 		clear_t_ft_select(s);
 	return (0);
