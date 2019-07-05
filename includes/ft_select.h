@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:13:46 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/04 19:35:38 by                  ###   ########.fr       */
+/*   Updated: 2019/07/05 01:18:48 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ typedef struct		s_ft_select
 }					t_ft_select;
 
 int					init_terminal_config(t_ft_select *s);
+int					init_old_terminal_config(t_ft_select *s);
 int					init_terminal_name(t_ft_select *s);
+int					read_input(t_ft_select *s);
 int					clear_t_ft_select(t_ft_select *s);
 int					exit_ft_select(t_ft_select *s, char *error, int error_code);
 

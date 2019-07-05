@@ -6,11 +6,11 @@
 #*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2019/05/28 17:41:01 by blukasho          #+#    #+#             *#
-#*   Updated: 2019/07/04 18:54:23 by                  ###   ########.fr       *#
+#*   Updated: 2019/07/05 03:03:32 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
-SRCS = main.c init.c clear.c error.c
+SRCS = main.c init.c clear.c error.c read.c
 
 SRCS_DIR = srcs/
 

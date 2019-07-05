@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:34:31 by                   #+#    #+#             */
-/*   Updated: 2019/07/04 20:07:04 by                  ###   ########.fr       */
+/*   Updated: 2019/07/05 03:09:26 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,28 @@
 
 int				init_terminal_config(t_ft_select *s)
 {
-	if (s)
-	{}
+	char		buf[1024];
+	char		*dub = buf;
+
+	if (tcgetattr(STDIN_FILENO, &(s->old_config)))
+		exit_ft_select(s, "ERROR. tcgetattr().", FAIL);
+	if (tcgetattr(STDIN_FILENO, &(s->new_config)))
+		exit_ft_select(s, "ERROR. tcgetattr().", FAIL);
+	s->new_config.c_lflag &= ~(ICANON | ECHO);
+	s->new_config.c_cc[VMIN] = 0;
+	s->new_config.c_cc[VTIME] = 0;
+	if (tcsetattr(STDIN_FILENO, TCSANOW, &(s->new_config)) == -1)
+		exit_ft_select(s, "ERROR. tcsetattr().", FAIL);
+	ft_printf("-> %s\n", tgetstr("vi", &dub)); //not work
+	ft_printf("-> %s\n", dub); //not work
+	return (0);
+}
+
+//
+int				init_old_terminal_config(t_ft_select *s)
+{
+	if (tcsetattr(STDIN_FILENO, TCSANOW, &(s->old_config)) == -1)
+		exit_ft_select(s, "ERROR. tcsetattr().", FAIL);
 	return (0);
 }
 
