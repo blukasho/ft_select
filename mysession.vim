@@ -56,7 +56,7 @@ endif
 set shortmess=aoO
 badd +1 srcs/main.c
 badd +1 srcs/init.c
-badd +29 includes/ft_select.h
+badd +15 includes/ft_select.h
 badd +13 Makefile
 badd +1 srcs/read.c
 argglobal
@@ -299,11 +299,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 29 - ((27 * winheight(0) + 25) / 50)
+let s:l = 38 - ((36 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-29
+38
 normal! 037|
 tabedit srcs/read.c
 set splitbelow splitright

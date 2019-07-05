@@ -6,13 +6,13 @@
 #    By: blukasho <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/04 12:08:45 by blukasho          #+#    #+#              #
-#*   Updated: 2019/07/04 21:14:54 by                  ###   ########.fr       *#
+#*   Updated: 2019/07/05 11:20:34 by                  ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = test_fd.c
+SRCS = test_tgetstr.c
 
-FLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address -I includes
+FLAGS =  -g3 -fsanitize=address
 
 all:
-	gcc $(FLAGS) $(SRCS)
+	gcc $(FLAGS) -Iincludes -I../libft/includes $(SRCS) ./libft.a -ltermcap
