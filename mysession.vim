@@ -56,7 +56,7 @@ endif
 set shortmess=aoO
 badd +1 srcs/main.c
 badd +1 srcs/init.c
-badd +1 includes/ft_select.h
+badd +29 includes/ft_select.h
 badd +13 Makefile
 badd +1 srcs/read.c
 argglobal
@@ -299,12 +299,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 30 - ((28 * winheight(0) + 25) / 50)
+let s:l = 29 - ((27 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-30
-normal! 041|
+29
+normal! 037|
 tabedit srcs/read.c
 set splitbelow splitright
 set nosplitbelow
@@ -547,12 +547,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 29 - ((28 * winheight(0) + 25) / 50)
+let s:l = 15 - ((14 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-29
-normal! 033|
+15
+normal! 0
 wincmd w
 argglobal
 edit Makefile

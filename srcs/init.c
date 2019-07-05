@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:34:31 by                   #+#    #+#             */
-/*   Updated: 2019/07/05 03:09:26 by                  ###   ########.fr       */
+/*   Updated: 2019/07/05 03:22:21 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int				init_terminal_config(t_ft_select *s)
 	s->new_config.c_cc[VTIME] = 0;
 	if (tcsetattr(STDIN_FILENO, TCSANOW, &(s->new_config)) == -1)
 		exit_ft_select(s, "ERROR. tcsetattr().", FAIL);
-	ft_printf("-> %s\n", tgetstr("vi", &dub)); //not work
+	ft_printf("-> %s\n", tgetstr(NULL, &dub)); //not work
 	ft_printf("-> %s\n", dub); //not work
 	return (0);
 }

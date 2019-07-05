@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:13:46 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/05 01:18:48 by                  ###   ########.fr       */
+/*   Updated: 2019/07/05 03:21:20 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 # include <../libft/includes/libft.h>
 # include <../libft/includes/ft_printf.h>
-# include <termios.h>
+# include <termio.h>
+# include <termcap.h>
 # include <unistd.h>
 # include <sys/stat.h>
 # include <sys/types.h>
-# include <term.h>
 # include <fcntl.h>
 
 typedef struct		s_ft_select
