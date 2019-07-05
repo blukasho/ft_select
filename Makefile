@@ -6,11 +6,11 @@
 #*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2019/05/28 17:41:01 by blukasho          #+#    #+#             *#
-#*   Updated: 2019/07/05 03:03:32 by                  ###   ########.fr       *#
+#*   Updated: 2019/07/05 11:47:29 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
-SRCS = main.c init.c clear.c error.c read.c
+SRCS = main.c init.c clear.c error.c read.c out.c
 
 SRCS_DIR = srcs/
 
@@ -26,7 +26,7 @@ LIB_NAME = libft/libft.a
 
 FT_SELECT = ft_select
 
-FLAGS = -Wall -Wextra -Werror -I includes
+FLAGS = -Wall -Wextra -Werror -Iincludes
 
 DEBUG_FLAGS = -g3 -fsanitize=address
 
