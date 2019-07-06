@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:34:31 by                   #+#    #+#             */
-/*   Updated: 2019/07/05 13:00:15 by                  ###   ########.fr       */
+/*   Updated: 2019/07/06 19:57:03 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int				init_terminal_config(t_ft_select *s)
 	return (0);
 }
 
-//
 int				init_old_terminal_config(t_ft_select *s)
 {
 	tputs(tgetstr("te", NULL), STDOUT_FILENO, print_bite);
@@ -60,7 +59,6 @@ t_ft_select		*init_t_ft_select(void)
 	s = (t_ft_select *)malloc(sizeof(t_ft_select));
 	if (!s)
 		exit_ft_select(s, "ERROR. malloc().", FAIL);
-	if (s)
-		ft_bzero(s, sizeof(t_ft_select));
+	ft_bzero(s, sizeof(t_ft_select));
 	return (s);
 }

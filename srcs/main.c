@@ -6,22 +6,24 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:16:07 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/05 13:16:14 by                  ###   ########.fr       */
+/*   Updated: 2019/07/06 18:11:59 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int				main(void)
+int				main(int argc, char **argv)
 {
-	char		*term_name;
 	t_ft_select	*s;
+	char		*term_name;
 
+	--argc;
+	++argv;
+	if (!*argv)
+		exit_ft_select(NULL, "ERROR Need arguments.", FAIL);
 	s = init_t_ft_select();
 	init_terminal_name(s);
 	init_terminal_config(s);
-	if (s && term_name)
-	{}
 	read_input(s);
 	init_old_terminal_config(s);
 
