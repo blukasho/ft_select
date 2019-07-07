@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:13:46 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/07 14:14:26 by                  ###   ########.fr       */
+/*   Updated: 2019/07/07 16:52:31 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct		s_ft_select
 	char			*config_name;
 	struct termios	old_config;
 	struct termios	new_config;
-	struct s_elem	**elem;
+	t_elem			**elem;
 }					t_ft_select;
 
 int					init_terminal_config(t_ft_select *s);

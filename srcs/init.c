@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:34:31 by                   #+#    #+#             */
-/*   Updated: 2019/07/07 14:41:06 by                  ###   ########.fr       */
+/*   Updated: 2019/07/07 16:52:30 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_ft_select		*init_t_ft_select(int argc, char **argv)
 		exit_ft_select(s, "ERROR. malloc() init.c 61.", FAIL);
 	ft_bzero(s, sizeof(t_ft_select));
 	(s->elem) = (t_elem **)malloc((argc + 1) * sizeof(t_elem *));
+	*(s->elem) = NULL;
 	if (!(s->elem))
 		exit_ft_select(s, "ERROR. malloc() init.c 65.", FAIL);
 	if (argc && argv)
