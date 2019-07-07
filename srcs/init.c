@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:34:31 by                   #+#    #+#             */
-/*   Updated: 2019/07/06 19:57:03 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/07 14:41:06 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,18 @@ int				init_terminal_name(t_ft_select *s)
 	return (0);
 }
 
-t_ft_select		*init_t_ft_select(void)
+t_ft_select		*init_t_ft_select(int argc, char **argv)
 {
 	t_ft_select	*s;
 
 	s = (t_ft_select *)malloc(sizeof(t_ft_select));
 	if (!s)
-		exit_ft_select(s, "ERROR. malloc().", FAIL);
+		exit_ft_select(s, "ERROR. malloc() init.c 61.", FAIL);
 	ft_bzero(s, sizeof(t_ft_select));
+	(s->elem) = (t_elem **)malloc((argc + 1) * sizeof(t_elem *));
+	if (!(s->elem))
+		exit_ft_select(s, "ERROR. malloc() init.c 65.", FAIL);
+	if (argc && argv)
+	{}
 	return (s);
 }

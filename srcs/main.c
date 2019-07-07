@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:16:07 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/06 18:11:59 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/07 12:42:00 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int				main(int argc, char **argv)
 	++argv;
 	if (!*argv)
 		exit_ft_select(NULL, "ERROR Need arguments.", FAIL);
-	s = init_t_ft_select();
+	s = init_t_ft_select(argc, argv);
+
 	init_terminal_name(s);
 	init_terminal_config(s);
 	read_input(s);
