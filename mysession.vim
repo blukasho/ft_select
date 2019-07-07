@@ -46,6 +46,7 @@ set tabstop=4
 set ttimeout
 set ttimeoutlen=100
 set wildmenu
+set window=50
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -56,20 +57,20 @@ endif
 set shortmess=aoO
 badd +1 srcs/clear.c
 badd +16 srcs/error.c
-badd +64 srcs/init.c
+badd +62 srcs/init.c
 badd +1 srcs/main.c
 badd +4 srcs/out.c
 badd +16 srcs/read.c
 badd +13 Makefile
-badd +27 includes/ft_select.h
+badd +40 includes/ft_select.h
 argglobal
 silent! argdel *
 argadd srcs/clear.c
-argadd srcs/error.c
-argadd srcs/init.c
-argadd srcs/main.c
-argadd srcs/out.c
 argadd srcs/read.c
+argadd srcs/out.c
+argadd srcs/main.c
+argadd srcs/init.c
+argadd srcs/error.c
 set stal=2
 edit srcs/clear.c
 set splitbelow splitright
@@ -186,13 +187,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 24 - ((23 * winheight(0) + 25) / 50)
+let s:l = 26 - ((24 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
-normal! 0
-tabedit srcs/error.c
+26
+normal! 018|
+tabedit srcs/read.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -314,7 +315,7 @@ exe s:l
 normal! zt
 16
 normal! 0
-tabedit srcs/init.c
+tabedit srcs/out.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -430,12 +431,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 62 - ((41 * winheight(0) + 25) / 50)
+let s:l = 26 - ((5 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-62
-normal! 022|
+26
+normal! 0
 tabedit srcs/main.c
 set splitbelow splitright
 set nosplitbelow
@@ -558,7 +559,7 @@ exe s:l
 normal! zt
 21
 normal! 011|
-tabedit srcs/out.c
+tabedit srcs/init.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -674,13 +675,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 26 - ((5 * winheight(0) + 25) / 50)
+let s:l = 1 - ((0 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-26
-normal! 0
-tabedit srcs/read.c
+1
+normal! 05|
+tabedit srcs/error.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -812,8 +813,6 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
-exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)
 argglobal
 edit includes/ft_select.h
 setlocal keymap=
@@ -1048,8 +1047,6 @@ normal! zt
 13
 normal! 049|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
-exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)
 tabnext 1
 set stal=1
 if exists('s:wipebuf')

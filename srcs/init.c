@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:34:31 by                   #+#    #+#             */
-/*   Updated: 2019/07/07 16:52:30 by                  ###   ########.fr       */
+/*   Updated: 2019/07/07 17:56:41 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,22 @@ int				init_terminal_name(t_ft_select *s)
 t_ft_select		*init_t_ft_select(int argc, char **argv)
 {
 	t_ft_select	*s;
+	int			i;
 
 	s = (t_ft_select *)malloc(sizeof(t_ft_select));
 	if (!s)
 		exit_ft_select(s, "ERROR. malloc() init.c 61.", FAIL);
 	ft_bzero(s, sizeof(t_ft_select));
 	(s->elem) = (t_elem **)malloc((argc + 1) * sizeof(t_elem *));
-	*(s->elem) = NULL;
 	if (!(s->elem))
 		exit_ft_select(s, "ERROR. malloc() init.c 65.", FAIL);
-	if (argc && argv)
-	{}
+	i = 0;
+	while (i < argc)
+	{
+		(s->elem)[i] = (t_elem *)malloc(sizeof(t_elem));
+		((s->elem)[i])->name = ft_strdup(argv[i]);
+		++i;
+	}
+	(s->elem)[i] = NULL;
 	return (s);
 }
