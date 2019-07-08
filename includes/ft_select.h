@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:13:46 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/08 15:02:40 by                  ###   ########.fr       */
+/*   Updated: 2019/07/08 18:53:41 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@
 # define START_CURSOR_POS "ho"
 # define SAVE_CURSOR_POS "sc"
 # define RESTORE_CURSOR_POS "rc"
+
+# define MOVE_UP "up"
+# define MOVE_DOWN "do"
+# define MOVE_LEFT "le"
+# define MOVE_RIGHT "nd"
+
+#define UP_KEY 4283163
+#define DOWN_KEY 4348699
+#define LEFT_KEY 4479771
+#define RIGHT_KEY 4414235
 
 # define _TPUTS(s) tputs(s, STDOUT_FILENO, print_bite)
 # define _TPUTS_TGETSTR(s) tputs(tgetstr(s, NULL), STDOUT_FILENO, print_bite)
