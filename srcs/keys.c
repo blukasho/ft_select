@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear.c                                            :+:      :+:    :+:   */
+/*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 18:47:48 by                   #+#    #+#             */
-/*   Updated: 2019/07/08 16:10:56 by                  ###   ########.fr       */
+/*   Created: 2019/07/08 14:58:28 by                   #+#    #+#             */
+/*   Updated: 2019/07/08 15:02:40 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int					clear_t_ft_select(t_ft_select *s)
+int			handle_keys(t_ft_select *s, long key)
 {
-	t_elem			**argv;
-
-	argv = s->elem;
-	if (s->config_name)
-		ft_strdel(&(s->config_name));
-	if (argv)
-	{
-		while (*argv && !ft_strdel(&(*(argv))->name))
-			free(*(argv++));
-		free((s->elem));
-	}
-	if (s)
-		free(s);
+	if (s && key)
+	{}
 	return (0);
 }
