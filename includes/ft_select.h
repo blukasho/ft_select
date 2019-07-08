@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:13:46 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/07 16:52:31 by                  ###   ########.fr       */
+/*   Updated: 2019/07/08 13:17:47 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 # define FT_SELECT_H
 
 # define FAIL EXIT_FAILURE
+
+# define CLEAR_TERMINAL "cl"
+# define HIDE_CURSOR "vi"
+# define SHOW_CURSOR "ve"
+# define START_PROGRAM "ti"
+# define END_PROGRAM "te"
+# define START_CURSOR_POS "ho"
+# define SAVE_CURSOR_POS "sc"
+# define RESTORE_CURSOR_POS "rc"
+
+# define _TPUTS(s) tputs(s, STDOUT_FILENO, print_bite)
+# define _TPUTS_TGETSTR(s) tputs(tgetstr(s, NULL), STDOUT_FILENO, print_bite)
 
 # include <../libft/includes/libft.h>
 # include <../libft/includes/ft_printf.h>

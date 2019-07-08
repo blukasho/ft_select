@@ -59,18 +59,18 @@ badd +1 srcs/clear.c
 badd +16 srcs/error.c
 badd +62 srcs/init.c
 badd +1 srcs/main.c
-badd +4 srcs/out.c
+badd +26 srcs/out.c
 badd +16 srcs/read.c
 badd +13 Makefile
 badd +40 includes/ft_select.h
 argglobal
 silent! argdel *
 argadd srcs/clear.c
-argadd srcs/read.c
-argadd srcs/out.c
-argadd srcs/main.c
-argadd srcs/init.c
 argadd srcs/error.c
+argadd srcs/init.c
+argadd srcs/main.c
+argadd srcs/out.c
+argadd srcs/read.c
 set stal=2
 edit srcs/clear.c
 set splitbelow splitright
@@ -187,13 +187,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 26 - ((24 * winheight(0) + 24) / 48)
+let s:l = 18 - ((17 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-26
-normal! 018|
-tabedit srcs/read.c
+18
+normal! 0
+tabedit srcs/error.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -315,7 +315,7 @@ exe s:l
 normal! zt
 16
 normal! 0
-tabedit srcs/out.c
+tabedit srcs/init.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -431,12 +431,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 26 - ((5 * winheight(0) + 25) / 50)
+let s:l = 34 - ((15 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-26
-normal! 0
+34
+normal! 032|
 tabedit srcs/main.c
 set splitbelow splitright
 set nosplitbelow
@@ -553,13 +553,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 21 - ((20 * winheight(0) + 25) / 50)
+let s:l = 30 - ((29 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 011|
-tabedit srcs/init.c
+30
+normal! 0
+tabedit srcs/out.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -675,13 +675,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 25) / 50)
+let s:l = 27 - ((26 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 05|
-tabedit srcs/error.c
+27
+normal! 031|
+tabedit srcs/read.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -797,12 +797,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 23 - ((22 * winheight(0) + 25) / 50)
+let s:l = 28 - ((26 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-23
-normal! 0
+28
+normal! 026|
 tabedit includes/ft_select.h
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -813,6 +813,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
+exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)
 argglobal
 edit includes/ft_select.h
 setlocal keymap=
@@ -923,12 +925,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 40 - ((35 * winheight(0) + 25) / 50)
+let s:l = 25 - ((20 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-40
-normal! 016|
+25
+normal! 02|
 wincmd w
 argglobal
 edit Makefile
@@ -1047,7 +1049,9 @@ normal! zt
 13
 normal! 049|
 wincmd w
-tabnext 1
+exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
+exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)
+tabnext 7
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

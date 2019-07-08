@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:34:31 by                   #+#    #+#             */
-/*   Updated: 2019/07/07 17:56:41 by                  ###   ########.fr       */
+/*   Updated: 2019/07/08 09:24:13 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@ int				init_terminal_config(t_ft_select *s)
 	s->new_config.c_cc[VTIME] = 0;
 	if (tcsetattr(STDOUT_FILENO, TCSANOW, &(s->new_config)) == -1)
 		exit_ft_select(s, "ERROR. tcsetattr().", FAIL);
-	tputs(tgetstr("vi", NULL), STDOUT_FILENO, print_bite);
-	tputs(tgetstr("ti", NULL), STDOUT_FILENO, print_bite);
+//	tputs(tgetstr(HIDE_CURSOR, NULL), STDOUT_FILENO, print_bite);
+	tputs(tgetstr(START_PROGRAM, NULL), STDOUT_FILENO, print_bite);
+	tputs(tgetstr(CLEAR_TERMINAL, NULL), STDOUT_FILENO, print_bite);
 	return (0);
 }
 
 int				init_old_terminal_config(t_ft_select *s)
 {
-	tputs(tgetstr("te", NULL), STDOUT_FILENO, print_bite);
-	tputs(tgetstr("ve", NULL), STDOUT_FILENO, print_bite);
+	tputs(tgetstr(END_PROGRAM, NULL), STDOUT_FILENO, print_bite);
+	tputs(tgetstr(SHOW_CURSOR, NULL), STDOUT_FILENO, print_bite);
 	if (tcsetattr(STDOUT_FILENO, TCSANOW, &(s->old_config)) == -1)
 		exit_ft_select(s, "ERROR. tcsetattr().", FAIL);
 	return (0);

@@ -6,21 +6,24 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 11:44:29 by                   #+#    #+#             */
-/*   Updated: 2019/07/06 18:03:56 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/08 08:39:26 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_select.h>
 
-int		print_bite(int n)
+int			print_bite(int n)
 {
 	write(STDOUT_FILENO, &n, 1);
 	return (0);
 }
 
-int		print_argv(t_ft_select *s)
+int			print_argv(t_ft_select *s)
 {
-	if (s)
-	{}
+	t_elem	**elem;
+
+	elem = s->elem;
+	while (*elem)
+		ft_printf("%s\t", ((*(elem++))->name));
 	return (0);
 }
