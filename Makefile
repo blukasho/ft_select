@@ -24,6 +24,7 @@ CURR_PATH = .
 
 LIB_NAME = libft/libft.a
 
+
 FT_SELECT = ft_select
 
 FLAGS = -Wall -Wextra -Werror -Iincludes
