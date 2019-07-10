@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:34:31 by                   #+#    #+#             */
-/*   Updated: 2019/07/08 14:38:51 by                  ###   ########.fr       */
+/*   Updated: 2019/07/09 12:58:17 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,16 @@ int				init_terminal_name(t_ft_select *s)
 	return (0);
 }
 
+t_curs			*init_t_curs(t_ft_select *s)
+{
+	t_curs		*curs;
+
+	if (!(curs = (t_curs *)malloc(sizeof(t_curs))))
+		exit_ft_select(s, "ERROR. malloc init.c 61.", FAIL);
+	ft_bzero(curs, sizeof(t_curs));
+	return (curs);
+}
+
 t_ft_select		*init_t_ft_select(int argc, char **argv)
 {
 	t_ft_select	*s;
@@ -62,6 +72,7 @@ t_ft_select		*init_t_ft_select(int argc, char **argv)
 	if (!s)
 		exit_ft_select(s, "ERROR. malloc() init.c 61.", FAIL);
 	ft_bzero(s, sizeof(t_ft_select));
+	s->pos = init_t_curs(s);
 	(s->elem) = (t_elem **)malloc((argc + 1) * sizeof(t_elem *));
 	if (!(s->elem))
 		exit_ft_select(s, "ERROR. malloc() init.c 65.", FAIL);
@@ -73,5 +84,6 @@ t_ft_select		*init_t_ft_select(int argc, char **argv)
 		++i;
 	}
 	(s->elem)[i] = NULL;
+	(*(s->elem))->is_pos = 1;
 	return (s);
 }

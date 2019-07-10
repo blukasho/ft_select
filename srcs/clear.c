@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:47:48 by                   #+#    #+#             */
-/*   Updated: 2019/07/08 16:10:56 by                  ###   ########.fr       */
+/*   Updated: 2019/07/09 14:29:06 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int					clear_t_ft_select(t_ft_select *s)
 	argv = s->elem;
 	if (s->config_name)
 		ft_strdel(&(s->config_name));
+	free(s->pos);
 	if (argv)
 	{
 		while (*argv && !ft_strdel(&(*(argv))->name))

@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:13:46 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/08 18:53:41 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/09 12:58:43 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,21 @@ typedef struct		s_elem
 	char			is_pos;
 }					t_elem;
 
+typedef struct		s_curs
+{
+	int				pos_x;
+	int				pos_y;
+	int				max_x;
+	int				max_y;
+}					t_curs;
+
 typedef struct		s_ft_select
 {
 	char			*config_name;
 	struct termios	old_config;
 	struct termios	new_config;
 	t_elem			**elem;
+	t_curs			*pos;
 }					t_ft_select;
 
 int					handle_keys(t_ft_select *s, long key);
@@ -72,6 +81,7 @@ int					read_input(t_ft_select *s);
 int					clear_t_ft_select(t_ft_select *s);
 int					exit_ft_select(t_ft_select *s, char *error, int error_code);
 
+t_curs				*init_t_curs(t_ft_select *s);
 t_ft_select			*init_t_ft_select(int argc, char **argv);
 
 #endif

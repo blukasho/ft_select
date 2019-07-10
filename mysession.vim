@@ -5,14 +5,16 @@ let s:cpo_save=&cpo
 set cpo&vim
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
+nnoremap tu :tabp
+nnoremap ti :tabn
 nnoremap tc :tabclose
 nnoremap tn :tabnew
 nnoremap th :tabp
 nnoremap tl :tabn
-nnoremap tu :tabp
-nnoremap ti :tabn
+nnoremap tt :tabp
 nnoremap wq :wa:mksession! mysession.vim:qa
 nnoremap ws :wa:mksession! mysession.vim:sh
+nnoremap yy :tabn
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
 nnoremap <F5> :noh
@@ -46,7 +48,6 @@ set tabstop=4
 set ttimeout
 set ttimeoutlen=100
 set wildmenu
-set window=50
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -56,14 +57,14 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 srcs/clear.c
-badd +14 srcs/error.c
-badd +3 srcs/init.c
-badd +17 srcs/keys.c
+badd +23 srcs/error.c
+badd +56 srcs/init.c
+badd +1 srcs/keys.c
 badd +1 srcs/main.c
-badd +3 srcs/out.c
-badd +14 srcs/read.c
+badd +27 srcs/out.c
+badd +17 srcs/read.c
 badd +3 Makefile
-badd +5 includes/ft_select.h
+badd +60 includes/ft_select.h
 argglobal
 silent! argdel *
 argadd srcs/clear.c
@@ -189,12 +190,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 6 - ((5 * winheight(0) + 25) / 50)
+let s:l = 20 - ((19 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-6
-normal! 024|
+20
+normal! 023|
 tabedit srcs/read.c
 set splitbelow splitright
 set nosplitbelow
@@ -311,11 +312,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 25 - ((24 * winheight(0) + 25) / 50)
+let s:l = 17 - ((15 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-25
+17
 normal! 0
 tabedit srcs/out.c
 set splitbelow splitright
@@ -433,12 +434,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 25) / 50)
+let s:l = 29 - ((5 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
-normal! 032|
+29
+normal! 0
 tabedit srcs/main.c
 set splitbelow splitright
 set nosplitbelow
@@ -555,12 +556,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 18 - ((17 * winheight(0) + 25) / 50)
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
-normal! 0
+1
+normal! 033|
 tabedit srcs/keys.c
 set splitbelow splitright
 set nosplitbelow
@@ -677,11 +678,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 22 - ((20 * winheight(0) + 24) / 48)
+let s:l = 27 - ((25 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-22
+27
 normal! 0
 tabedit srcs/init.c
 set splitbelow splitright
@@ -799,13 +800,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 27 - ((25 * winheight(0) + 24) / 48)
+let s:l = 22 - ((20 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-27
-normal! 022|
-tabedit srcs/error.c
+22
+normal! 0
+tabedit includes/ft_select.h
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -813,133 +814,6 @@ wincmd t
 set winheight=1 winwidth=1
 argglobal
 7argu
-setlocal keymap=
-setlocal noarabic
-setlocal noautoindent
-setlocal backupcopy=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal noexpandtab
-if &filetype != 'c'
-setlocal filetype=c
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-set number
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'c'
-setlocal syntax=c
-endif
-setlocal tabstop=4
-setlocal tagcase=
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal noundofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 13 - ((11 * winheight(0) + 24) / 48)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-13
-normal! 0
-tabedit includes/ft_select.h
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 93 + 47) / 95)
-exe 'vert 2resize ' . ((&columns * 1 + 47) / 95)
-argglobal
 edit includes/ft_select.h
 setlocal keymap=
 setlocal noarabic
@@ -1049,13 +923,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 30 - ((29 * winheight(0) + 24) / 48)
+let s:l = 70 - ((30 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-30
-normal! 023|
-wincmd w
+70
+normal! 0
+tabedit Makefile
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
 argglobal
 edit Makefile
 setlocal keymap=
@@ -1166,16 +1045,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((0 * winheight(0) + 24) / 48)
+let s:l = 5 - ((4 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
-normal! 056|
-wincmd w
-exe 'vert 1resize ' . ((&columns * 93 + 47) / 95)
-exe 'vert 2resize ' . ((&columns * 1 + 47) / 95)
-tabnext 8
+5
+normal! 0
+tabnext 1
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
