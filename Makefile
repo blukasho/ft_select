@@ -10,7 +10,7 @@
 #*                                                                            *#
 #* ************************************************************************** *#
 
-SRCS = main.c init.c clear.c error.c read.c out.c keys.c
+SRCS = main.c init.c clear.c error.c read.c out.c keys.c window.c count.c
 
 SRCS_DIR = srcs/
 
@@ -62,7 +62,7 @@ make_clean_lib:
 	make clean -C $(LIBFT_PATH)
 
 clean: make_clean_lib
-	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR) 
 
 fclean: clean
 	make fclean -C $(LIBFT_PATH)

@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   count.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 01:05:03 by                   #+#    #+#             */
+/*   Created: 2019/07/10 17:29:38 by blukasho          #+#    #+#             */
 /*   Updated: 2019/07/10 17:47:47 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_select.h"
+#include <ft_select.h>
 
-
-int			read_input(t_ft_select *s)
+int			get_max_len_elem(t_ft_select *s)
 {
-	long	buf;
+	t_elem	**elem;
+	int		max_len;
 
-	buf = 0;
-	_TPUTS_TGETSTR(CLEAR_TERMINAL);
-	prepare_output_elem(s);
-	_TPUTS_TGETSTR(START_CURSOR_POS);
-	while (!0 && buf != 27 && !(buf = 0))
-		if (read(STDIN_FILENO, &buf, 4))
-			handle_keys(s, buf);
-	return (0);
+	elem = s->elem;
+	max_len = 0;
+	while (*elem)
+		if ((int)ft_strlen(((*elem)->name)) > max_len)
+			max_len = ft_strlen(((*(elem++))->name));
+		else
+			++elem;
+	return (max_len);
+}
+
+int			get_count_elem(t_ft_select *s)
+{
+	t_elem	**elems;
+	int		count_elems;
+
+	count_elems = 0;
+	elems = s->elem;
+	while (*(elems++))
+		++count_elems;
+	return (count_elems);
 }
