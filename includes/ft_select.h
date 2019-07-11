@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:13:46 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/10 17:47:47 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/11 09:34:12 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,11 @@ int					read_input(t_ft_select *s);
 int					clear_t_ft_select(t_ft_select *s);
 int					exit_ft_select(t_ft_select *s, char *error, int error_code);
 int					print_size_window(t_ft_select *s);//test func
-struct winsize		get_winsize(t_ft_select *s);
 int					get_max_len_elem(t_ft_select *s);
 int					get_count_elem(t_ft_select *s);
 int					prepare_output_elem(t_ft_select *s);//test
+int					get_win_row(t_ft_select *s);
+int					get_win_col(t_ft_select *s);
 
 t_curs				*init_t_curs(t_ft_select *s);
 t_ft_select			*init_t_ft_select(int argc, char **argv);
