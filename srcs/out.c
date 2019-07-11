@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 11:44:29 by                   #+#    #+#             */
-/*   Updated: 2019/07/11 16:30:10 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/11 17:07:05 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			update_max_size_matrix(t_ft_select *s, int col, int row)
 {
 	s->pos->max_row = row;
 	s->pos->max_col = col;
-	ft_printf("row %d\ncol %d\n", row, col);
+//	ft_printf("row %d\ncol %d\n", row, col);
 	return (0);
 }
 

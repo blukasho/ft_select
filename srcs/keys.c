@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 14:58:28 by                   #+#    #+#             */
-/*   Updated: 2019/07/11 16:26:11 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/11 17:49:02 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,24 @@ static int	move_right(t_ft_select *s)
 	t_elem	**elem;
 
 	elem = s->elem;
+//	_CURSOR_PRT_POS(s);
 	while (*elem && !((*elem)->is_pos))
 		++elem;
-	(*elem)->is_pos = 0;
+	if (*elem)
+		(*elem)->is_pos = 0;
+	if (*(elem + 1) && ((*(elem + 1))->is_pos = 1))
+	//	_CURSOR_SET_POS(s, (s->pos->pos_col) + 1, s->pos->pos_row);
+		cursor_set_pos(s, (s->pos->pos_col) + 1, s->pos->pos_row);
+	else
+	{
+		_TPUTS_TGETSTR(START_CURSOR_POS);
+		cursor_set_pos(s, 0, 0);
+		(*(s->elem))->is_pos = 1;
+		return (0);
+	}
 	len = get_max_len_elem(s) + 1;
 	while (--len >= 0)
 		_TPUTS_TGETSTR(MOVE_RIGHT);
-	if (*(elem + 1))
-		(*(elem + 1))->is_pos = 1;
-	else
-	{
-		(*(s->elem))->is_pos = 1;
-		_TPUTS_TGETSTR("ho");
-	}
 	return (0);
 }
 
