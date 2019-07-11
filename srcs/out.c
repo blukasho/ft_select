@@ -6,11 +6,19 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 11:44:29 by                   #+#    #+#             */
-/*   Updated: 2019/07/11 13:08:17 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/11 16:30:10 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_select.h>
+
+int			update_max_size_matrix(t_ft_select *s, int col, int row)
+{
+	s->pos->max_row = row;
+	s->pos->max_col = col;
+	ft_printf("row %d\ncol %d\n", row, col);
+	return (0);
+}
 
 int			print_bite(int n)
 {
@@ -32,6 +40,7 @@ int					prepare_output_elem(t_ft_select *s)
 		++row;
 	if (row >= get_win_row(s))
 		return (0);
+	update_max_size_matrix(s, col, row);
 	print_elems(s, col, row);
 	return (1);
 }
@@ -53,7 +62,7 @@ int					print_elems(t_ft_select *s, int col, int row)
 			space = (int)ft_strlen(((*elem)->name));
 			ft_printf("%s", ((*(elem++))->name));
 			while (space++ < (get_max_len_elem(s) + 1))
-				ft_printf(" ");
+				ft_printf("%c", SPACE);
 		}
 		ft_printf("\n");
 	}

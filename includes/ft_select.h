@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 09:13:46 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/11 09:34:12 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/11 16:30:31 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,12 @@
 # define MOVE_LEFT "le"
 # define MOVE_RIGHT "nd"
 
-#define UP_KEY 4283163
-#define DOWN_KEY 4348699
-#define LEFT_KEY 4479771
-#define RIGHT_KEY 4414235
+# define UP_KEY 4283163
+# define DOWN_KEY 4348699
+# define LEFT_KEY 4479771
+# define RIGHT_KEY 4414235
+
+# define SPACE '.'
 
 # define _TPUTS(s) tputs(s, STDOUT_FILENO, print_bite)
 # define _TPUTS_TGETSTR(s) tputs(tgetstr(s, NULL), STDOUT_FILENO, print_bite)
@@ -57,10 +59,10 @@ typedef struct		s_elem
 
 typedef struct		s_curs
 {
-	int				pos_x;
-	int				pos_y;
-	int				max_x;
-	int				max_y;
+	int				pos_row;
+	int				pos_col;
+	int				max_row;
+	int				max_col;
 }					t_curs;
 
 typedef struct		s_ft_select

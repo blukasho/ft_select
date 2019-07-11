@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 14:58:28 by                   #+#    #+#             */
-/*   Updated: 2019/07/10 17:50:22 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/11 16:26:11 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	move_right(t_ft_select *s)
 	while (*elem && !((*elem)->is_pos))
 		++elem;
 	(*elem)->is_pos = 0;
-	len = ft_strlen((*elem)->name) + 1;
+	len = get_max_len_elem(s) + 1;
 	while (--len >= 0)
 		_TPUTS_TGETSTR(MOVE_RIGHT);
 	if (*(elem + 1))
