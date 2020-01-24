@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:34:31 by                   #+#    #+#             */
-/*   Updated: 2019/07/11 13:13:17 by blukasho         ###   ########.fr       */
+/*   Updated: 2020/01/24 16:21:54 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ t_ft_select		*init_t_ft_select(int argc, char **argv)
 	while (i < argc)
 	{
 		(s->elem)[i] = (t_elem *)malloc(sizeof(t_elem));
+		ft_bzero((s->elem)[i], sizeof(t_elem));
 		((s->elem)[i])->name = ft_strdup(argv[i]);
 		++i;
 	}

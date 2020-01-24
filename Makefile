@@ -68,7 +68,7 @@ clean: make_clean_lib
 
 fclean: clean
 	make fclean -C $(LIBFT_PATH)
-	rm -rvf minishell.dSYM
+	rm -rvf ft_select.dSYM
 	rm -rvf $(FT_SELECT)
 
 re: fclean all
